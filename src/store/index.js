@@ -26,13 +26,16 @@ export const useMoviesStore = defineStore('movies', () => {
     async function searchMovie(searchValue) {
         isLoading.value = true
         searchList.value = []
-        const response = await fetch(`${apiUrl}?t=${searchValue}&apikey=${apiKey}`)
+        const response = await fetch(`${apiUrl}?s=${searchValue}&apikey=${apiKey}&page=1`)
         const data = await response.json()
         if(data.Response == 'False') {
             console.error(data.Error)
             isLoading.value = false
         } else {
-            searchList.value = [data]
+            let list
+            if(data.Search) list = data.Search
+            else list = [data]
+            searchList.value = list
             isLoading.value = false
         }
     }

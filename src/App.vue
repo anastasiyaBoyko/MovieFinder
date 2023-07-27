@@ -30,6 +30,7 @@ body {
 
 .app-layout {
   height: 100%;
+  padding-top: 60px;
 
   section {
       display: flex;
@@ -39,7 +40,7 @@ body {
 }
 
 .main {
-  padding: 20px 0 20px 40px;
+  padding: 20px 0 20px 40px !important;
   display: flex;
   flex-flow: column nowrap;
   align-content: center;

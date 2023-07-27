@@ -24,6 +24,8 @@ function startSearch() {
 
 <style lang="scss" scoped>
 .search {
-    margin-bottom: 50px;
+    margin: 0 auto 50px auto;
+    width: 40%;
+    max-width: 40%;
 }
 </style>

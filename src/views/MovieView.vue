@@ -1,16 +1,19 @@
 <script setup>
-import {ref, onMounted} from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import {ref, onMounted, defineAsyncComponent} from 'vue'
+import { useRoute } from 'vue-router'
+
+const BackTo = defineAsyncComponent(() => import('../components/ui/BackAction.vue'))
 
 const route = useRoute()
-const router = useRouter()
 
 const title = ref(null)
 const poster = ref(null)
+const year = ref(null)
 
 onMounted(() => {
     title.value = route.query.movieTitle
     poster.value = route.query.moviePoster
+    year.value = route.query.movieYear
 })
 </script>
 
@@ -18,13 +21,14 @@ onMounted(() => {
     <el-main class="main">
         <el-image :src="poster" lazy />
         <h1 class="title">{{title}}</h1>
-        <el-icon class="back-icon" @click="router.go(-1)"><ArrowLeftBold /></el-icon>
+        <span class="year">{{year}}</span>
+        <BackTo />
     </el-main>
 </template>
 
 <style lang="scss" scoped>
-
-.title {
+.year {
+    display: block;
     margin-bottom: 50px;
 }
 </style>

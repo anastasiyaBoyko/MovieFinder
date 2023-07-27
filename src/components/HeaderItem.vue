@@ -16,6 +16,11 @@
 
 <style lang="scss" scoped>
 .header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+
     display: flex;
     flex-flow: row nowrap;
     align-items: center;

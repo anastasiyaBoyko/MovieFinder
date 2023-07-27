@@ -1,4 +1,3 @@
-import { default } from '../App.vue';
 <script setup>
 import { defineProps } from 'vue'
 import { useRouter } from 'vue-router'
@@ -18,7 +17,8 @@ const toMoviePage = () => {
         name: 'movie',
         query: {
             movieTitle: props.movie.Title,
-            moviePoster: props.movie.Poster
+            moviePoster: props.movie.Poster,
+            movieYear: props.movie.Year
         }
     })
 }
@@ -27,7 +27,7 @@ const toMoviePage = () => {
 <template>
     <div class="movie-card">
       <el-row class="movie-card__inner">
-        <el-col :span="8">
+        <el-col>
           <el-card :body-style="{ padding: '0px' }">
             <img
               :src="props.movie?.Poster"
@@ -35,8 +35,9 @@ const toMoviePage = () => {
             />
             <div class="movie-card__info" style="padding: 14px">
               <span>{{props.movie?.Title}}</span>
+              <span>{{props.movie?.Year}}</span>
               <div class="bottom">
-                <el-button text class="button movie-card__action" @click="toMoviePage">See more</el-button>
+                <el-button type="primary" text class="button movie-card__action" @click="toMoviePage">See more</el-button>
               </div>
             </div>
           </el-card>
@@ -65,11 +66,11 @@ const toMoviePage = () => {
 }
 
 .movie-card {
-    width: 20%;
-    max-width: 20%;
+    width: 23%;
+    max-width: 23%;
 
-    height: 290px;
-    max-height: 290px;
+    padding: 10px;
+    margin-bottom: 10px;
 
     &__inner img {
         width: 100%;
@@ -89,6 +90,7 @@ const toMoviePage = () => {
 
     &__action {
         cursor: pointer;
+        padding: 0 15px;
     }
 }
 </style>
