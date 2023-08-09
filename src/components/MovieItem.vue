@@ -11,7 +11,7 @@ const props = defineProps({
         default:() => {}
     }
 })
-
+//Becouse api not work - need to change logic, make request to api - to get one movie Item
 const toMoviePage = () => {
     router.push({
         name: 'movie',
