@@ -10,6 +10,7 @@ const title = ref(null)
 const poster = ref(null)
 const year = ref(null)
 
+//Becouse api not work - need to change logic, make request to api - to get one movie Item
 onMounted(() => {
     title.value = route.query.movieTitle
     poster.value = route.query.moviePoster
